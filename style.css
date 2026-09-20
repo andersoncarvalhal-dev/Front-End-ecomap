@@ -1,0 +1,261 @@
+/* ==========================================================================
+   1. VARIÁVEIS E RESET
+   ========================================================================== */
+:root {
+    --cor-primaria: #059669;
+    --cor-primaria-hover: #047857;
+    --cor-fundo: #f3f4f6;
+    --cor-texto: #1f2937;
+    --cor-texto-secundario: #6b7280;
+    --sombra-forte: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    overflow: hidden; 
+    width: 100%;
+}
+
+/* ==========================================================================
+   2. ÍCONES (Google Material Symbols)
+   ========================================================================== */
+.material-symbols-rounded {
+    font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    font-size: 20px;
+}
+
+/* ==========================================================================
+   3. LAYOUT PRINCIPAL E MAPA
+   ========================================================================== */
+.app-container {
+    position: fixed;
+    top: 0; 
+    left: 0; 
+    width: 100%;
+    height: 100vh; 
+    height: 100dvh; 
+    display: flex; 
+    flex-direction: column;
+}
+
+#mapa { 
+    width: 100%; 
+    flex-grow: 1; 
+    z-index: 1; 
+}
+
+/* ==========================================================================
+   4. COMPONENTES DO PAINEL FLUTUANTE
+   ========================================================================== */
+.painel-flutuante {
+    position: absolute;
+    top: 20px; 
+    left: 20px;
+    z-index: 1000; 
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    width: 360px;
+    border-radius: 16px;
+    box-shadow: var(--sombra-forte);
+    display: flex; 
+    flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-handle { display: none; }
+
+header { padding: 20px 20px 15px; border-bottom: 1px solid #e5e7eb; }
+.logo { display: flex; align-items: center; gap: 12px; }
+.logo .icone-logo { font-size: 36px; color: var(--cor-primaria); }
+header h1 { font-size: 20px; font-weight: 700; color: var(--cor-primaria); }
+header p { font-size: 13px; color: var(--cor-texto-secundario); }
+
+/* --- Navegação de Abas --- */
+.abas-nav { display: flex; border-bottom: 1px solid #e5e7eb; }
+.aba-btn {
+    flex: 1; padding: 12px 0; background: none; border: none;
+    font-size: 14px; font-weight: 600; color: var(--cor-texto-secundario);
+    cursor: pointer; border-bottom: 2px solid transparent;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.aba-btn.ativo { color: var(--cor-primaria); border-bottom: 2px solid var(--cor-primaria); }
+
+.conteudo-aba { 
+    display: none; 
+    max-height: 60vh; 
+    overflow-y: auto;
+}
+.conteudo-aba.ativa { display: block; }
+.conteudo-aba::-webkit-scrollbar { width: 4px; }
+.conteudo-aba::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 4px; }
+
+/* ==========================================================================
+   5. CONTEÚDO DAS ABAS (Filtros, Info, Login)
+   ========================================================================== */
+/* --- Filtros --- */
+.filtros { padding: 15px 20px 20px; }
+.filtros label { display: block; font-size: 13px; font-weight: 600; margin-bottom: 8px; margin-top: 15px;}
+
+.btn-secundario {
+    width: 100%; height: 48px; background-color: #e5e7eb; color: var(--cor-texto);
+    border: none; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer;
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+    transition: background 0.2s;
+}
+.btn-secundario:hover { background-color: #d1d5db; }
+
+select {
+    width: 100%; height: 48px; padding: 0 12px; border-radius: 8px; border: 1px solid #d1d5db;
+    background-color: white; font-size: 15px; font-family: 'Inter', sans-serif;
+    color: var(--cor-texto); cursor: pointer; outline: none; appearance: none;
+}
+.select-wrapper { position: relative; }
+.select-wrapper::after { 
+    content: "▼"; font-size: 10px; position: absolute; right: 15px; top: 50%; 
+    transform: translateY(-50%); pointer-events: none; color: var(--cor-texto-secundario); 
+}
+
+/* --- Informações (Sobre) --- */
+.info-texto { padding: 20px; }
+.info-texto h2 { font-size: 18px; color: var(--cor-primaria); margin-bottom: 10px; }
+.info-texto h3 { font-size: 15px; color: var(--cor-texto); margin-top: 20px; margin-bottom: 6px; }
+.info-texto p { font-size: 13.5px; color: var(--cor-texto-secundario); margin-bottom: 10px; line-height: 1.5; }
+
+.lista-regras { list-style: none; margin-top: 12px; margin-bottom: 24px; }
+.lista-regras li { 
+    font-size: 13.5px; color: var(--cor-texto-secundario); padding: 10px 0; 
+    border-bottom: 1px solid #f3f4f6; display: flex; align-items: center; gap: 12px; 
+}
+.lista-regras li .material-symbols-rounded { color: var(--cor-primaria); font-size: 22px; }
+.lista-regras li strong { color: var(--cor-texto); }
+
+.alerta-proibido { background-color: #fef2f2; border-left: 4px solid #ef4444; padding: 15px; border-radius: 4px; margin-top: 20px; }
+.alerta-header { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.alerta-header .material-symbols-rounded { color: #b91c1c; font-size: 20px; }
+.alerta-proibido h3 { color: #b91c1c; margin: 0; font-size: 15px;}
+.alerta-proibido p { color: #991b1b; margin-bottom: 8px; font-size: 13px; line-height: 1.4;}
+.alerta-proibido p:last-child { margin-bottom: 0; }
+
+/* --- Login --- */
+.form-login { padding: 20px; text-align: center; }
+.form-login h2 { font-size: 18px; margin-bottom: 5px; color: var(--cor-texto); }
+.form-login p { font-size: 13px; color: var(--cor-texto-secundario); margin-bottom: 20px; }
+
+.input-form {
+    width: 100%; height: 48px; padding: 0 15px; margin-bottom: 12px; 
+    border: 1px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: 'Inter', sans-serif;
+}
+
+.btn-primario {
+    width: 100%; height: 48px; background-color: var(--cor-primaria); color: white;
+    border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; margin-top: 5px;
+}
+/* Links do Formulário (Login e Cadastro) */
+.links-form { margin-top: 15px; font-size: 13.5px; }
+.link-simples { display: inline-block; color: var(--cor-primaria); text-decoration: none; margin-bottom: 12px; }
+.link-simples:hover { text-decoration: underline; }
+
+.texto-alternativo { color: var(--cor-texto-secundario); margin-top: 8px; border-top: 1px solid #e5e7eb; padding-top: 15px; }
+.link-destaque { color: var(--cor-primaria); font-weight: 600; text-decoration: none; cursor: pointer; }
+.link-destaque:hover { text-decoration: underline; }
+/* ==========================================================================
+   6. CUSTOMIZAÇÃO DO MAPA (Popups)
+   ========================================================================== */
+.leaflet-popup-content-wrapper { border-radius: 12px; box-shadow: var(--sombra-forte); padding: 6px; }
+.leaflet-popup-content { margin: 16px; font-family: 'Inter', sans-serif; }
+.popup-moderno h3 { font-size: 18px; font-weight: 700; color: #111827; margin-bottom: 12px; }
+
+.popup-moderno .info-linha { 
+    font-size: 13.5px; color: #4b5563; margin-bottom: 8px; 
+    display: flex; align-items: center; gap: 8px; 
+}
+.info-linha .material-symbols-rounded { color: var(--cor-primaria); font-size: 18px; }
+
+.btn-rota { 
+    display: flex; justify-content: center; align-items: center; gap: 8px;
+    height: 44px; margin-top: 16px; background-color: var(--cor-primaria); 
+    color: #ffffff !important; text-decoration: none; border-radius: 8px; 
+    font-size: 15px; font-weight: 600; transition: background-color 0.2s ease;
+}
+.btn-rota .material-symbols-rounded { color: #ffffff !important; font-size: 20px; }
+.btn-rota:hover { background-color: var(--cor-primaria-hover); }
+
+.leaflet-container a.leaflet-popup-close-button { color: #9ca3af; padding: 6px; }
+.leaflet-container a.leaflet-popup-close-button:hover { color: #ef4444; }
+
+/* ==========================================================================
+   7. RESPONSIVIDADE MOBILE (Gaveta / Bottom Sheet)
+   ========================================================================== */
+@media (max-width: 600px) {
+    .painel-flutuante {
+        top: auto; bottom: 0; left: 0; width: 100%; position: fixed;
+        border-radius: 24px 24px 0 0;
+        padding-bottom: calc(10px + env(safe-area-inset-bottom, 10px));
+        transform: translateY(0);
+    }
+    .painel-recolhido { transform: translateY(calc(100% - 85px - env(safe-area-inset-bottom, 0px))); }
+    .mobile-handle { display: block; width: 40px; height: 5px; background-color: #d1d5db; border-radius: 10px; margin: 12px auto 0; }
+    
+    #cabecalho-painel { cursor: pointer; padding-top: 10px; -webkit-tap-highlight-color: transparent; }
+    
+    .leaflet-control-zoom { margin-bottom: 240px !important; transition: margin-bottom 0.3s ease; }
+    body.is-recolhido .leaflet-control-zoom { margin-bottom: 110px !important; }
+}
+/* ==========================================================================
+   8. SISTEMA DE AVALIAÇÕES E COMENTÁRIOS
+   ========================================================================== */
+.header-avaliacoes {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    border-bottom: 1px solid #e5e7eb;
+}
+.btn-voltar {
+    background: none; border: none; cursor: pointer;
+    color: var(--cor-texto-secundario); display: flex; align-items: center;
+    padding: 8px; border-radius: 50%; transition: background 0.2s;
+}
+.btn-voltar:hover { background: #e5e7eb; color: var(--cor-texto); }
+.header-avaliacoes h2 { font-size: 16px; color: var(--cor-primaria); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Lista de Comentários */
+.lista-avaliacoes {
+    padding: 20px;
+    max-height: 40vh;
+    overflow-y: auto;
+    background-color: #f9fafb;
+}
+.comentario-card {
+    background: white; border: 1px solid #e5e7eb; border-radius: 8px;
+    padding: 15px; margin-bottom: 12px; box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.comentario-header { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.comentario-autor { font-size: 14px; font-weight: 600; color: var(--cor-texto); }
+.comentario-data { font-size: 12px; color: var(--cor-texto-secundario); }
+.comentario-texto { font-size: 13.5px; color: var(--cor-texto-secundario); line-height: 1.4; margin-top: 8px;}
+
+/* Estrelas (Amarelo) */
+.estrelas-exibicao .material-symbols-rounded { color: #f59e0b; font-size: 16px; font-variation-settings: 'FILL' 1; }
+.estrelas-exibicao .vazia { font-variation-settings: 'FILL' 0; color: #d1d5db; }
+
+/* Formulário de Nova Avaliação */
+.form-avaliacao { padding: 20px; border-top: 1px solid #e5e7eb; }
+.form-avaliacao h3 { font-size: 14px; color: var(--cor-texto); margin-bottom: 12px; }
+.estrelas-input { display: flex; gap: 4px; margin-bottom: 15px; cursor: pointer; }
+.estrelas-input .estrela { color: #d1d5db; font-size: 32px; transition: color 0.2s; font-variation-settings: 'FILL' 0; }
+.estrelas-input .estrela.ativa { color: #f59e0b; font-variation-settings: 'FILL' 1; }
+
+.area-texto { height: 80px; padding: 12px; resize: none; margin-bottom: 15px; }
+
+/* Ajuste dos botões no Popup do Mapa */
+.popup-moderno .botoes-popup { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.popup-moderno .btn-rota { margin-top: 0; }
