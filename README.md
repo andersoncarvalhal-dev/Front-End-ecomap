@@ -15,23 +15,23 @@
 
 ## 🚀 Funcionalidades
 
-- **🗺️ Mapa Interativo Dinâmico:** Visualização dos Ecopontos da cidade através de marcadores no mapa gerado pelo Leaflet.js[cite: 1, 2].
-- **📍 Geolocalização em Tempo Real:** Funcionalidade "Buscar perto de mim", que acede ao GPS do dispositivo para calcular e focar no Ecoponto mais próximo[cite: 1, 2].
-- **🚗 Geração de Rotas:** Botões embutidos nos pop-ups do mapa que criam hiperligações dinâmicas e abrem o Google Maps com o trajeto já traçado[cite: 2].
-- **🔍 Filtros por Material:** Barra de seleção para filtrar o mapa e apresentar apenas os locais que aceitam categorias específicas (Entulho, Restos de Poda, Recicláveis ou Eletrónicos)[cite: 1, 2].
-- **⭐ Sistema de Avaliações (UI):** Interface que permite visualizar os comentários existentes no formato de cartões e submeter novas avaliações com nota de 1 a 5 estrelas[cite: 1, 2].
-- **📖 Guia Informativo e Regras:** Aba dedicada a informar os utilizadores sobre o que pode ser descartado, os limites de volume (ex: até 2m³ de entulho, 300 litros de recicláveis) e materiais estritamente proibidos[cite: 1].
-- **📱 Design Mobile-First responsivo:** Painel de controlo concebido como uma gaveta deslizante (*bottom sheet*), que se ajusta automaticamente para facilitar a utilização com apenas uma mão em telemóveis[cite: 2, 3].
+- **🗺️ Mapa Interativo Dinâmico:** Visualização dos Ecopontos da cidade através de marcadores no mapa gerado pelo Leaflet.js.
+- **📍 Geolocalização em Tempo Real:** Funcionalidade "Buscar perto de mim", que acede ao GPS do dispositivo para calcular e focar no Ecoponto mais próximo.
+- **🚗 Geração de Rotas:** Botões embutidos nos pop-ups do mapa que criam hiperligações dinâmicas e abrem o Google Maps com o trajeto já traçado.
+- **🔍 Filtros por Material:** Barra de seleção para filtrar o mapa e apresentar apenas os locais que aceitam categorias específicas (Entulho, Restos de Poda, Recicláveis ou Eletrónicos).
+- **⭐ Sistema de Avaliações (UI):** Interface que permite visualizar os comentários existentes no formato de cartões e submeter novas avaliações com nota de 1 a 5 estrelas.
+- **📖 Guia Informativo e Regras:** Aba dedicada a informar os utilizadores sobre o que pode ser descartado, os limites de volume (ex: até 2m³ de entulho, 300 litros de recicláveis) e materiais estritamente proibidos.
+- **📱 Design Mobile-First responsivo:** Painel de controlo concebido como uma gaveta deslizante (*bottom sheet*), que se ajusta automaticamente para facilitar a utilização com apenas uma mão em telemóveis.
 
 ## 🛠️ Tecnologias Utilizadas
 
 Este projeto foi construído privilegiando a simplicidade, a velocidade e a ausência de dependências pesadas, utilizando tecnologias web padrão:
 
-*   **HTML5:** Estruturação semântica, abas de navegação e formulários[cite: 1].
-*   **CSS3 (Vanilla):** Estilização com variáveis globais, flexbox, e media queries para responsividade, sem recorrer a frameworks externas[cite: 3].
-*   **JavaScript (ES6):** Lógica da aplicação, manipulação do DOM, cálculo matemático de distâncias e gestão de eventos[cite: 2].
-*   **Leaflet.js & OpenStreetMap:** Biblioteca open-source ligeira para a renderização do mapa e dos marcadores[cite: 1, 2].
-*   **Google Material Symbols:** Iconografia com peso reduzido, utilizada em botões e alertas[cite: 1].
+*   **HTML5:** Estruturação semântica, abas de navegação e formulários.
+*   **CSS3 (Vanilla):** Estilização com variáveis globais, flexbox, e media queries para responsividade, sem recorrer a frameworks externas.
+*   **JavaScript (ES6):** Lógica da aplicação, manipulação do DOM, cálculo matemático de distâncias e gestão de eventos.
+*   **Leaflet.js & OpenStreetMap:** Biblioteca open-source ligeira para a renderização do mapa e dos marcadores.
+*   **Google Material Symbols:** Iconografia com peso reduzido, utilizada em botões e alertas.
 
 ## ⚙️ Como Executar Localmente
 
@@ -39,13 +39,13 @@ Sendo um projeto estático em Vanilla JS, não é necessário instalar Node.js, 
 
 1. **Clonar o repositório:**
    ```bash
-   git clone [https://github.com/andersoncarvalhal-dev/Front-End-ecomap.git](https://github.com/andersoncarvalhal-dev/Front-End-ecomap.git)
+   git clone [https://github.com/andersoncarvalhal-dev/Front-End-ecomap.git](https://github.com/andersoncarvalhal-dev/Front-End-ecomap.git).
 
 
 ## 🔮 Roadmap (Próximos Passos)
-[ ] Backend e Base de Dados: Ligar o sistema de comentários (atualmente guardado em memória) a uma base de dados real (ex: Firebase).
+- ** Backend e Base de Dados: Ligar o sistema de comentários (atualmente guardado em memória) a uma base de dados real (ex: Firebase).
 
-[ ] Autenticação de Utilizadores: Desenvolver as funções dos botões da aba "Entrar" e "Registar", para que apenas utilizadores logados possam deixar avaliações.
+- ** Autenticação de Utilizadores: Desenvolver as funções dos botões da aba "Entrar" e "Registar", para que apenas utilizadores logados possam deixar avaliações.
 
 
 ## 📝 Licença
