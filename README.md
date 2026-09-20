@@ -39,13 +39,13 @@ Sendo um projeto estático em Vanilla JS, não é necessário instalar Node.js, 
 
 1. **Clonar o repositório:**
    ```bash
-   git clone [https://github.com/andersoncarvalhal-dev/Front-End-ecomap.git](https://github.com/andersoncarvalhal-dev/Front-End-ecomap.git).
+   git clone https://github.com/andersoncarvalhal-dev/Front-End-ecomap.git
 
 
 ## 🔮 Roadmap (Próximos Passos)
-- ** Backend e Base de Dados: Ligar o sistema de comentários (atualmente guardado em memória) a uma base de dados real (ex: Firebase).
+- **Backend e Base de Dados:** Ligar o sistema de comentários (atualmente guardado em memória) a uma base de dados real (ex: Firebase).
 
-- ** Autenticação de Utilizadores: Desenvolver as funções dos botões da aba "Entrar" e "Registar", para que apenas utilizadores logados possam deixar avaliações.
+- **Autenticação de Utilizadores:** Desenvolver as funções dos botões da aba "Entrar" e "Registar", para que apenas utilizadores logados possam deixar avaliações.
 
 
 ## 📝 Licença
